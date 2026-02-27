@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProctorExam.AI - Home</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="{{ url_for('home') }}">
+                <i class="fa-solid fa-graduation-cap me-2 text-primary"></i>
+                ProctorExam<span class="text-primary">.AI</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="{{ url_for('home') }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}">Login</a></li>
+                    <li class="nav-item ms-lg-2">
+                        <a class="btn btn-primary btn-sm px-4 rounded-pill" href="{{ url_for('register') }}">Sign Up</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="container position-relative z-2">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold text-dark mb-4">
+                        Secure Online Exams <br>
+                        <span class="text-primary">Powered by AI</span>
+                    </h1>
+                    <p class="lead text-secondary mb-5">
+                        Experience the future of remote assessments. Our AI-driven proctoring ensures integrity, security, and ease of use for institutions and students alike.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="{{ url_for('login') }}" class="btn btn-primary btn-lg px-5">Get Started</a>
+                        <a href="#about" class="btn btn-outline-primary btn-lg px-5">Learn More</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center mt-5 mt-lg-0">
+                    <img src="https://img.freepik.com/free-vector/online-test-concept-illustration_114360-5486.jpg" alt="Exam Illustration" class="img-fluid rounded-3 shadow-lg hero-img">
+                </div>
+            </div>
+        </div>
+        <i class="fa-solid fa-laptop-code hero-icon"></i>
+    </header>
+
+    <!-- Features Section -->
+    <section id="features" class="bg-light section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h6 class="text-primary text-uppercase fw-bold ls-2">Features</h6>
+                <h2 class="fw-bold">Everything you need for secure exams</h2>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card feature-card p-4">
+                        <div class="card-body">
+                            <div class="icon-square">
+                                <i class="fa-solid fa-eye"></i>
+                            </div>
+                            <h4 class="card-title fw-bold">AI Proctoring</h4>
+                            <p class="card-text text-muted">Advanced algorithms monitor behavior and detect anomalies in real-time using webcam and microphone analysis.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card p-4">
+                        <div class="card-body">
+                            <div class="icon-square">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <h4 class="card-title fw-bold">Auto Timer</h4>
+                            <p class="card-text text-muted">Precise synchronization ensures fair time management. Auto-submission triggers exactly when time expires.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card p-4">
+                        <div class="card-body">
+                            <div class="icon-square">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <h4 class="card-title fw-bold">Secure Environment</h4>
+                            <p class="card-text text-muted">Full-screen mode, tab switching prevention, and encrypted data transmission protect exam integrity.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">About ProctorExam.AI</h2>
+                <p class="text-muted w-75 mx-auto">We are democratizing education by making online assessments accessible, secure, and fair for everyone, everywhere.</p>
+            </div>
+
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="https://img.freepik.com/free-vector/team-goals-concept-illustration_114360-5154.jpg" class="img-fluid rounded" alt="Team">
+                </div>
+                <div class="col-lg-6">
+                    <h3 class="fw-bold mb-3">Our Mission</h3>
+                    <p class="text-secondary mb-4">
+                        To provide a seamless examination experience that upholds the highest standards of academic integrity. We bridge the gap between traditional classroom testing and the digital world through cutting-edge Artificial Intelligence.
+                    </p>
+                    
+                    <h3 class="fw-bold mb-3">Why Choose Us?</h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fa-solid fa-check-circle text-success me-2"></i> 99.9% Uptime Guarantee</li>
+                        <li class="mb-2"><i class="fa-solid fa-check-circle text-success me-2"></i> 24/7 Technical Support</li>
+                        <li class="mb-2"><i class="fa-solid fa-check-circle text-success me-2"></i> Scalable for 10 to 10,000 students</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-light section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Get In Touch</h2>
+                <p class="text-muted">Have questions? We'd love to hear from you.</p>
+            </div>
+
+            <div class="row g-5">
+                <!-- Contact Info -->
+                <div class="col-lg-5">
+                    <div class="bg-white p-4 rounded shadow-sm h-100">
+                        <h4 class="fw-bold mb-4">Contact Information</h4>
+                        
+                        <div class="d-flex mb-4">
+                            <div class="flex-shrink-0">
+                                <i class="fa-solid fa-location-dot text-primary fs-4 mt-1"></i>
+                            </div>
+                            <div class="ms-3">
+                                <h5 class="mb-1">Headquarters</h5>
+                                <p class="text-muted mb-0">34/3/51 New Pacha Pet ,<br>Solapur, 413006</p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex mb-4">
+                            <div class="flex-shrink-0">
+                                <i class="fa-solid fa-envelope text-primary fs-4 mt-1"></i>
+                            </div>
+                            <div class="ms-3">
+                                <h5 class="mb-1">Email Us</h5>
+                                <p class="text-muted mb-0">General: info@proctorexam.ai</p>
+                                <p class="text-muted mb-0">Support: help@proctorexam.ai</p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex mb-4">
+                            <div class="flex-shrink-0">
+                                <i class="fa-solid fa-phone text-primary fs-4 mt-1"></i>
+                            </div>
+                            <div class="ms-3">
+                                <h5 class="mb-1">Call Us</h5>
+                                <p class="text-muted mb-0">+91 7620444848</p>
+                                <small class="text-muted">Mon-Fri, 9am - 6pm EST</small>
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <h5 class="mb-3">Follow Us</h5>
+                            <a href="#" class="btn btn-outline-secondary btn-sm me-2 rounded-circle"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#" class="btn btn-outline-secondary btn-sm me-2 rounded-circle"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#" class="btn btn-outline-secondary btn-sm me-2 rounded-circle"><i class="fa-brands fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="col-lg-7">
+                    <div class="bg-white p-4 rounded shadow-sm h-100">
+                        <form id="contactForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">First Name</label>
+                                    <input type="text" class="form-control" placeholder="John">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" placeholder="Doe">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" placeholder="name@example.com">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Subject</label>
+                                    <select class="form-select">
+                                        <option selected>General Inquiry</option>
+                                        <option>Technical Support</option>
+                                        
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Message</label>
+                                    <textarea class="form-control" rows="5" placeholder="How can we help you?"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary w-100 py-2">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-auto">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2026 ProctorExam.AI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/home.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+/* Admin Dashboard Styles */
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Sidebar Layout */
+.sidebar {
+    height: 100vh;
+    width: 260px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #212529; /* Dark background */
+    color: white;
+    padding-top: 60px; /* Below navbar */
+    z-index: 100;
+}
+
+.sidebar a {
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 1rem;
+    color: #adb5bd;
+    display: block;
+    border-left: 4px solid transparent;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    color: #fff;
+    background-color: #343a40;
+}
+
+.sidebar a.active {
+    color: #fff;
+    background-color: #343a40;
+    border-left-color: #0d6efd; /* Active blue border */
+}
+
+/* Content Area */
+.main-content {
+    margin-left: 260px; /* Matches sidebar width */
+    padding: 80px 30px 30px; /* Top padding clears navbar */
+}
+
+/* Statistics Cards */
+.stat-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}

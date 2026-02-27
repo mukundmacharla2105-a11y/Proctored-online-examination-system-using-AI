@@ -1,0 +1,37 @@
+/* Profile Specific Styles */
+
+/* Large Avatar in Profile Card */
+.large-avatar {
+    width: 100px;
+    height: 100px;
+    font-size: 2.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Form Controls Read-only styling */
+.form-control[readonly] {
+    background-color: #f8f9fa; /* Light gray to indicate read-only */
+    border: 1px solid #dee2e6;
+    color: #495057;
+    font-weight: 500;
+}
+
+/* Small Icon Box for Exam List */
+.icon-box-small {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+/* Table Row Hover Effect Refinement */
+.table-hover tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Card Enhancements */
+.card-header {
+    background-color: transparent;
+}

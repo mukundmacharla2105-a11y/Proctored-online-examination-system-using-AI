@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - ProctorExam.AI</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}">
+</head>
+<body>
+
+    <!-- Consistent Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="{{ url_for('home') }}">
+                <i class="fa-solid fa-graduation-cap me-2 text-primary"></i>
+                ProctorExam<span class="text-primary">.AI</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container d-flex flex-column justify-content-center min-vh-100 py-5 mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-5">
+                <div class="card register-card p-4">
+                    <div class="card-body">
+                        <div class="text-center mb-4">
+                            <i class="fa-solid fa-user-plus text-primary" style="font-size: 3rem;"></i>
+                            <h3 class="fw-bold mt-2">Create Account</h3>
+                            <p class="text-muted small">Join for secure online assessments</p>
+                        </div>
+
+                        <form id="registerForm" action="{{ url_for('register') }}" method="POST" enctype="multipart/form-data">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label text-muted small fw-bold">First Name</label>
+                                    <input type="text" name="first_name" class="form-control" placeholder="John" required>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label class="form-label text-muted small fw-bold">Last Name</label>
+                                    <input type="text" name="last_name" class="form-control" placeholder="Doe" required>
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="form-label text-muted small fw-bold">Mobile Number</label>
+                                    <input type="tel" name="mobile_number" class="form-control" placeholder="Enter mobile number" required>
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="form-label text-muted small fw-bold">Date of Birth</label>
+                                    <input type="date" name="date_of_birth" class="form-control" required>
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="form-label text-muted small fw-bold">Institution / Organization</label>
+                                    <input type="text" name="institution" class="form-control" placeholder="Institution / Organization" required>
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="form-label text-muted small fw-bold">ID Proof Upload (Image/PDF)</label>
+                                    <input type="file" name="id_proof" class="form-control" accept=".png,.jpg,.jpeg,.pdf" required>
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="form-label text-muted small fw-bold">Webcam Photo Capture</label>
+                                    <div class="border rounded p-2 bg-light">
+                                        <video id="regWebcam" autoplay muted playsinline style="width:100%; max-height:220px; object-fit:cover;"></video>
+                                        <canvas id="regCaptureCanvas" style="display:none;"></canvas>
+                                        <input type="hidden" name="face_image_data" id="faceImageData">
+                                        <div class="d-flex gap-2 mt-2">
+                                            <button type="button" class="btn btn-outline-secondary btn-sm" id="startCameraBtn">Start Camera</button>
+                                            <button type="button" class="btn btn-outline-primary btn-sm" id="captureFaceBtn">Capture Photo</button>
+                                        </div>
+                                        <div class="form-text text-muted">Capture a clear single-face image before submitting.</div>
+                                    </div>
+                                </div>
+
+                                
+
+                                <div class="col-12">
+                                    <label class="form-label text-muted small fw-bold">Email Address</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light border-end-0"><i class="fa-solid fa-envelope text-secondary"></i></span>
+                                        <input type="email" name="email" class="form-control border-start-0" placeholder="name@example.com" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="form-label text-muted small fw-bold">Password</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light border-end-0"><i class="fa-solid fa-lock text-secondary"></i></span>
+                                        <input type="password" name="password" id="regPassword" class="form-control border-start-0" placeholder="Create a password" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="form-label text-muted small fw-bold">Confirm Password</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light border-end-0"><i class="fa-solid fa-lock text-secondary"></i></span>
+                                        <input type="password" name="confirm_password" id="regConfirmPassword" class="form-control border-start-0" placeholder="Confirm password" required>
+                                    </div>
+                                    <div id="passwordError" class="form-text text-danger d-none">Passwords do not match.</div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="proctoringConsent" name="proctoring_consent" required>
+                                        <label class="form-check-label small text-muted" for="proctoringConsent">
+                                            I consent to webcam/microphone-based proctoring during exams
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="termsCheck" name="terms_accepted" required>
+                                        <label class="form-check-label small text-muted" for="termsCheck">
+                                            I agree to the <a href="#" class="text-decoration-none">Terms of Service</a> and <a href="#" class="text-decoration-none">Privacy Policy</a>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary w-100 py-2 fw-bold mt-2">Sign Up</button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class="text-center mt-4">
+                            <p class="small text-muted mb-0">Already have an account?</p>
+                            <a href="{{ url_for('login') }}" class="text-decoration-none fw-bold">Login here</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/register.js') }}"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var toggler = document.querySelector('.navbar-toggler');
+            var nav = document.getElementById('navbarNav');
+            if (!toggler || !nav) return;
+            toggler.addEventListener('click', function () {
+                nav.classList.toggle('show');
+            });
+        });
+    </script>
+</body>
+</html>

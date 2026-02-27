@@ -1,0 +1,9 @@
+flask
+flask-socketio
+flask-sqlalchemy
+flask-cors
+opencv-python-headless
+mediapipe
+numpy
+eventlet
+reportlab

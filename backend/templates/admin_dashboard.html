@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin_dashboard.css') }}">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-dark fixed-top px-3 shadow">
+        <a class="navbar-brand fw-bold" href="{{ url_for('home') }}">
+
+            <i class="fa-solid fa-shield-halved text-danger me-2"></i>Admin<span class="text-light">Portal</span>
+        </a>
+        <a href="{{ url_for('login') }}" class="btn btn-outline-light btn-sm">Logout</a>
+    </nav>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h6 class="text-uppercase text-muted small fw-bold px-4 mb-3 mt-3">Main Menu</h6>
+        <a href="{{ url_for('admin_dashboard') }}" class="active"><i class="fa-solid fa-chart-line me-2"></i> Dashboard</a>
+        <a href="{{ url_for('student_details') }}"><i class="fa-solid fa-users me-2"></i> Students</a>
+        <a href="{{ url_for('create_exam') }}"><i class="fa-solid fa-file-pen me-2"></i> Exams</a>
+        <a href="#"><i class="fa-solid fa-square-poll-vertical me-2"></i> Results</a>
+        <a href="#"><i class="fa-solid fa-gear me-2"></i> Settings</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="fw-bold">Dashboard Overview</h2>
+            <!-- Fixed line 38: Changed button with onclick to anchor tag for robust linking -->
+            <a href="{{ url_for('create_exam') }}" class="btn btn-primary" id="createExamBtn"><i class="fa-solid fa-plus me-2"></i> Create Exam</a>
+        </div>
+
+        <div class="row g-4 mb-5">
+            <div class="col-md-4">
+                <div class="card stat-card bg-white p-3 h-100">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h6 class="text-muted text-uppercase">Total Students</h6>
+                                <h2 class="fw-bold mb-0" id="totalStudents">0</h2>
+                            </div>
+                            <div class="text-secondary fs-1 opacity-25">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card stat-card bg-white p-3 h-100">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h6 class="text-muted text-uppercase">Active Exams</h6>
+                                <h2 class="fw-bold text-primary mb-0" id="createdExams">0</h2>
+                            </div>
+                            <div class="text-primary fs-1 opacity-25">
+                                <i class="fa-solid fa-laptop-file"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card stat-card bg-white p-3 h-100">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h6 class="text-muted text-uppercase">Pending Results</h6>
+                                <h2 class="fw-bold text-warning mb-0" id="pendingResults">0</h2>
+                            </div>
+                            <div class="text-warning fs-1 opacity-25">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Activity Table -->
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-white py-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0 fw-bold">Recent Exam Sessions</h5>
+                    <input type="text" class="form-control form-control-sm" id="sessionSearch" placeholder="Search student or exam..." style="max-width: 260px;">
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Student</th>
+                                <th>Exam</th>
+                                <th>Status</th>
+                                <th>Score</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="sessionTable">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/admin_dashboard.js') }}"></script>
+</body>
+</html>

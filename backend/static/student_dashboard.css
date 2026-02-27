@@ -1,0 +1,98 @@
+/* Student Dashboard Styles */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f3f4f6;
+    padding-top: 60px; /* Navbar height */
+}
+
+/* Sidebar */
+.sidebar {
+    height: 100vh;
+    width: 260px;
+    position: fixed;
+    top: 60px; /* Below navbar */
+    left: 0;
+    background-color: #fff;
+    border-right: 1px solid #e5e7eb;
+    overflow-y: auto;
+    z-index: 100;
+}
+
+.avatar-circle {
+    width: 64px;
+    height: 64px;
+    background-color: #e9ecef;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #495057;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.nav-link {
+    color: #6c757d;
+    padding: 0.8rem 1.2rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.2rem;
+    transition: all 0.2s;
+}
+
+.nav-link:hover {
+    background-color: #f8f9fa;
+    color: #0d6efd;
+}
+
+.nav-link.active {
+    background-color: #e7f1ff;
+    color: #0d6efd;
+    font-weight: 600;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 260px;
+    padding: 2rem;
+}
+
+/* Stat Cards */
+.stat-card {
+    transition: transform 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.icon-box {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+/* Exam Cards */
+.exam-card {
+    transition: all 0.3s;
+}
+
+.exam-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s;
+    }
+    .main-content {
+        margin-left: 0;
+    }
+    /* Add a toggler logic for mobile sidebar if needed */
+}

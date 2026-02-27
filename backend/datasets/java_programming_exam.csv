@@ -1,0 +1,11 @@
+question_text,option_a,option_b,option_c,option_d,correct_option,marks
+Which keyword is used to define a class in Java?,class,struct,define,object,0,1
+Which method is the entry point of a Java program?,start(),main(),run(),init(),1,1
+Which of the following is NOT a Java primitive data type?,int,float,String,boolean,2,1
+Which keyword is used to inherit a class in Java?,implements,inherits,extends,super,2,1
+Which access modifier makes a member visible only within the same class?,public,protected,default,private,3,1
+What is the size of int data type in Java?,2 bytes,4 bytes,8 bytes,Depends on system,1,1
+Which keyword is used to create an object in Java?,object,new,create,malloc,1,1
+Which concept allows a method to have multiple forms?,Inheritance,Encapsulation,Polymorphism,Abstraction,2,1
+Which exception is thrown when dividing a number by zero?,NullPointerException,ArithmeticException,NumberFormatException,IOException,1,1
+Which keyword is used to prevent method overriding?,static,private,final,const,2,1
